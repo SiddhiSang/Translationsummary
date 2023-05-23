@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover contentHeight="250px" contentWidth="auto" showHeader="false" placement="Bottom" >
+		<content>
+		<SelectList  id="variantList" items="{TransReportModel>/YC_MTR_VARIANT}" itemPress="variantSelect">
+				<core:Item key="{TransReportModel>variantid}" text="{TransReportModel>variant_name}"/>
+			</SelectList>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button id="Manage" text="{i18n>Manage}" press="handleManagePress"/>
+				<Button id="variantSave" text="{i18n>Save}" press="handleSavePress"/>
+				<Button id="variantSaveAs" text="{i18n>Saveas}" press="handleSaveAsPress"/>
+			</Toolbar>
+		</footer>
+	</Popover>
+</core:FragmentDefinition>

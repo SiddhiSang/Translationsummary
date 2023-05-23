@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleOppSortConfirm" class="group_header123">
+		<sortItems class="group_header123">
+			<ViewSettingsItem class="group_header123" text="{i18n>requestid}" key="RequestId" selected="true"/>
+			<ViewSettingsItem text="{i18n>Status}" key="StatusDesc"/>
+			<ViewSettingsItem text="{i18n>requestor}" key="RequesterName"/>
+			<ViewSettingsItem text="{i18n>Customer}" key="customer"/>
+			<ViewSettingsItem text="{i18n>country}" key="CountryDesc"/>
+			<ViewSettingsItem text="{i18n>StrtDte}" key="CreationDate"/>
+			<ViewSettingsItem text="{i18n>DelvryDte}" key="ReqDelDate"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

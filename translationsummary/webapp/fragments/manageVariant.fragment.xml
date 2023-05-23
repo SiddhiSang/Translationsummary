@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="manageVariantFragment" title="{i18n>managevariant}" type="Message" class="sapUiSizeCompact">
+		<content>
+			<Table id="variantManageTable" growing="true"	growingThreshold="100" includeItemInSelection="true"
+				items="{path: 'TransReportModel>/YC_MANAGE_MTR_VARIANT', mode: 'OneWay', filters: [{path: 'applicationid',operator: 'EQ',value1: 'TRREP'}]}">
+				<columns>
+					<Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>add}"/>
+					</Column> 
+					<Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>name}"/>
+					</Column>
+					<Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>type}"/>
+					</Column>
+					<Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>default}"/>
+					</Column>
+					<Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>exteSelct}"/>
+					</Column>
+					<Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Author}"/>
+					</Column>
+					<Column width="5em" hAlign="End">
+						<Text text=""/>
+					</Column>
+				</columns>
+				<ColumnListItem>
+					<cells>
+						<CheckBox selected="{= ${TransReportModel>Favourite} === 'X'}"/>
+						<Input value="{TransReportModel>variant_name}" enabled="{= ${TransReportModel>Editable} === 'X'}" tooltip="{TransReportModel>variant_name}"/>
+						<Text text="{TransReportModel>type}"></Text>
+						<RadioButton class="rbAlighnCenter" groupName="GroupA" selected="{= ${TransReportModel>defaultVariant} === 'X'}"/>
+						<CheckBox selected="{= ${TransReportModel>executeonselect} === 'X'}" enabled="{= ${TransReportModel>Editable} === 'X'}"/>
+						<Text text="{TransReportModel>author}"></Text>
+						<Button icon="sap-icon://delete" press="handleVariantDelete" type="Transparent" visible="{= ${TransReportModel>Editable} === 'X'}"></Button>
+					</cells>
+				</ColumnListItem>
+			</Table>
+		</content>
+		<beginButton >
+			<Button text="{i18n>ok}"  type="Emphasized" tooltip="{i18n>ok}" press="handleManageVariantPress"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>cancel}" type="Reject" tooltip="{i18n>cancel}" press="handleManageVariantCancel"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

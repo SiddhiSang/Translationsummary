@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Dialog id="_IDGenDialog1" showHeader="true" contentHeight="auto" contentWidth="auto" title="{i18n>country}">
+		<subHeader>
+			<Toolbar id="_IDGenToolbar1">
+				<SearchField search="onCountryLivesrch" width="100%" id="countrySearchMulti" />
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List id="CountryListMulti" items="{oCountryModel>/oCountryListSet}"  mode="MultiSelect" growing="true" growingThreshold="100"
+				selectionChange="handleAddSolItemSelect" includeItemInSelection="true" >
+				<items>
+					<StandardListItem id="_IDGenStandardListItem1" title="{oCountryModel>CountryDescription}" description="{path: 'oCountryModel>CountryId', formatter: '.Formatter.onFieldIdVisibility'}"
+					selected="{oCountryModel>selected}" type="Active"/>
+				</items>
+			</List>
+		</content>
+		<beginButton>
+			<Button id="_IDGenButton1" text="{i18n>ok}"  type="Emphasized" press="onConfrmCountry" tooltip="{i18n>ok}"/>
+		</beginButton>
+		<endButton>
+			<Button id="_IDGenButton2" text="{i18n>cancel}" type="Reject"  press="onCloseCountryFrag" tooltip="{i18n>cancel}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

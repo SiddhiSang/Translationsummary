@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="Status" id="StatusListMulti" multiSelect="true" class="sapUiPopupWithPadding" rememberSelections="false"
+		items="{TransReportModel>/Yc_Mtr_M_Status}" liveChange="onStatusLivesrch" confirm="onConfrmStatus"
+		cancel="onCloseStatusDailog" growingThreshold="100">
+		<StandardListItem title="{TransReportModel>StatusDescription}" info="{TransReportModel>StatusId}" selected="{TransReportModel>Selected}" type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

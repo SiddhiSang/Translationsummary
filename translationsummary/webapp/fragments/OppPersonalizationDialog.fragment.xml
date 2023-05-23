@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>columns}" class="sapUiSizeCompact">
+		<subHeader>
+			<Toolbar>
+				<SegmentedButton select="onOppPersonalizationDialogSort">
+					<items>
+						<SegmentedButtonItem icon="sap-icon://arrow-top" tooltip="{i18n>Ascending}" key="asc"/>
+						<SegmentedButtonItem icon="sap-icon://arrow-bottom" tooltip="{i18n>descending}" key="desc"/>
+					</items>
+				</SegmentedButton>
+				<SearchField liveChange="onOppPersonalizationDialogSearch"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List id="OppPersonalizationList" items="{path : 'oppColumns>/', sorter : { path : 'name', descending : false } }" mode="MultiSelect"
+				includeItemInSelection="true" selectionChange="onOppFieldVisibility" >
+				<StandardListItem title="{oppColumns>name}" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
+			</List>
+		</content>
+		<endButton>
+			<Button text="{i18n>ok}"  type="Emphasized" tooltip="{i18n>ok}" press="onOppPersonalizationDialogClose"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

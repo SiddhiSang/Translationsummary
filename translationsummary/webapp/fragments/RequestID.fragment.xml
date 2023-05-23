@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Dialog showHeader="true" contentHeight="auto" title="{i18n>requestid}">
+		<subHeader>
+			<Toolbar>
+				<SearchField search="onRequestIdSrchLive" width="100%" id="onReqstSrchValId" />
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List id="SDCShowroom" items="{oRequestIdModel>/oRequestIdListSet}"  mode="MultiSelect" growing="true" growingThreshold="100"
+				 includeItemInSelection="true" >
+				<items>
+					<StandardListItem title="{oRequestIdModel>RequestId}" selected="{oRequestIdModel>selected}"  type="Active"/>
+				</items>
+			</List>
+		</content>
+		<beginButton>
+			<Button text="{i18n>ok}"  type="Emphasized" press="onRequstIdCnfrm" tooltip="{i18n>ok}"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>cancel}" type="Reject" press="onCloseRequestIdFrag" tooltip="{i18n>cancel}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
