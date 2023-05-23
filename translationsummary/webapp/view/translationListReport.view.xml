@@ -1,0 +1,247 @@
+
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar" controllerName="com.presalescentral.translationsummary.controller.translationListReport"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page id="page" title="" showHeader="false">
+        <content>
+        	<!-- <customHeader> -->
+			<Toolbar id="_IDGenToolbar1">
+				<!-- <libCtrl:QuickNavMenu text="{i18n>Melody.Quick.Nav}"></libCtrl:QuickNavMenu> -->
+				<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+				<Title id="_IDGenTitle1" text="{i18n>appTitle}" level="H3"/>
+				<ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+				<Label id="_IDGenLabel1" text=""/>
+			</Toolbar>
+		<!-- </customHeader> -->
+		<f:DynamicPage id="dynamicPageId" headerExpanded="true" busyIndicatorDelay="0" toggleHeaderOnTitleClick="true" busy="{busy>/isAppBusy}"
+			class="pcActivitySetView">
+			<f:title>
+				<f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+					<f:heading>
+						<Button id="variantButton" text="{i18n>Standard}" iconFirst="false" type="Transparent" tooltip="" icon="sap-icon://arrow-down"
+							press="onClickStandardVariant"/>
+					</f:heading>
+					<f:expandedContent>
+						<Text id="expandendContent"/>
+					</f:expandedContent>
+					<f:snappedContent>
+						<Text id="snappedContent"/>
+					</f:snappedContent>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader pinnable="false" id="filtersHeader">
+					<f:content>
+						<layout:Grid id="_IDGenGrid1" >
+							<VBox id="_IDGenVBox1" class="searchBox">
+								<SearchField id="globalSearch" placeholder="{i18n>Search}" value="{variant>/globalsearch/value1}" tooltip="{i18n>Search}"
+									search="onFilterSerachTableData"></SearchField>
+								<layoutData>
+									<layout:GridData id="_IDGenGridData1" span="L2 M2 S12"></layout:GridData>
+								</layoutData>
+							</VBox>
+							<VBox id="_IDGenVBox2">
+								<fb:FilterBar id="filterbar" showFilterConfiguration="false" reset="onReset" search="performTableFilter" clear="onClearFilterDataTotal"
+									useToolbar="false" showClearOnFB="true" showGoOnFB="true" class="pcActFilterBar" showClearButton="true">
+									<fb:filterItems>
+										<fb:FilterItem id="_IDGenFilterItem1" name="RequestId" label="{i18n>requestid}" visible="{path: 'variant>/requestid/visible', formatter: '.Formatter.visiblity'}">
+											<fb:control>
+												<MultiInput enableMultiLineMode="true" id="RequestIds" type="Text" placeholder="{i18n>ReqId.Placeholder}" showSuggestion="true"
+													tokenUpdate="handleDeleteRequesIdtToken" showValueHelp="true" valueHelpRequest="onRequestIdValuehelp"
+													tokens="{ path: 'variant>/requestid/value1', sorter: { path: 'RequestId' } }">
+													<customData>
+														<core:CustomData id="_IDGenCustomData1" value="RequestId"/>
+													</customData>
+													<suggestionItems>
+														<core:Item id="_IDGenItem1" text="{variant>RequestId}"/>
+													</suggestionItems>
+													<tokens>
+														<Token id="_IDGenToken1" key="{variant>RequestId}" text="{variant>RequestId}"/>
+													</tokens>
+												</MultiInput>
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem id="_IDGenFilterItem2" name="Requestar" label="{i18n>requestor}" visible="{path: 'variant>/requestor/visible', formatter: '.Formatter.visiblity'}">
+											<fb:control>
+												<MultiInput enableMultiLineMode="true" id="RequestorIds" type="Text" placeholder="{i18n>Requestors.Placeholder}" showSuggestion="true"
+													tokenUpdate="onDeleteUserToken" showValueHelp="true" valueHelpRequest="onRequestorValueHelpOpen"
+													tokens="{path: 'variant>/requestor/value1', sorter: { path: 'UserName' } }">
+													<customData>
+														<core:CustomData id="_IDGenCustomData2" value="requester"/>
+													</customData>
+													<suggestionItems>
+														<core:Item id="_IDGenItem2" text="{variant>UserName}"/>
+													</suggestionItems>
+													<tokens>
+														<Token id="_IDGenToken2" key="{variant>ID}" text="{variant>UserName}"/>
+													</tokens>
+												</MultiInput>
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem id="_IDGenFilterItem3" name="CustomerName" label="{i18n>Customer}" visible="{path: 'variant>/customer/visible', formatter: '.Formatter.visiblity'}">
+											<fb:control>
+												<MultiInput enableMultiLineMode="true" id="CustomerNameIds" type="Text" placeholder="{i18n>Customer.Placeholder}" tooltip="{i18n>Customer}"
+													showSuggestion="true" showValueHelp="true" valueHelpRequest="onCustomerNameOpenFrag"
+													tokens="{ path: 'variant>/customer/value1', sorter: { path: 'customer' } }" tokenUpdate="onDeleteCustomerTokens">
+													<customData>
+														<core:CustomData id="_IDGenCustomData3" value="customer"/>
+													</customData>
+													<suggestionItems>
+														<core:Item id="_IDGenItem3" text="{variant>customer}"/>
+													</suggestionItems>
+													<tokens>
+														<Token id="_IDGenToken3" key="{variant>customer}" text="{variant>customer}"/>
+													</tokens>
+												</MultiInput>
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem id="_IDGenFilterItem4" name="Country" label="{i18n>country}" visible="{path: 'variant>/country/visible', formatter: '.Formatter.visiblity'}">
+											<fb:control>
+												<MultiInput enableMultiLineMode="true" id="CountryIds" type="Text" placeholder="{i18n>Countru.Placeholder}" tooltip="{i18n>country}"
+													showSuggestion="true" showValueHelp="true" valueHelpRequest="onCountryValuehelp"
+													tokens="{ path: 'variant>/country/value1', sorter: { path: 'CountryDescription' } }" tokenUpdate="onDeleteCountryLineItem">
+													<customData>
+														<core:CustomData id="_IDGenCustomData4" value="CountryId"/>
+													</customData>
+													<suggestionItems>
+														<core:Item id="_IDGenItem4" text="{variant>CountryDescription}"/>
+													</suggestionItems>
+													<tokens>
+														<Token id="_IDGenToken4" key="{variant>CountryId}" text="{variant>CountryDescription}"/>
+													</tokens>
+												</MultiInput>
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem id="_IDGenFilterItem5" name="Status" label="{i18n>Status}" visible="{path: 'variant>/status/visible', formatter: '.Formatter.visiblity'}">
+											<fb:control>
+												<ComboBox id="Region" selectedKey="{variant>/status/value1}" placeholder="{i18n>Status.Placeholder}"
+													items="{TransReportModel>/Yc_Mtr_M_Status}">
+													<core:Item id="_IDGenItem5" key="{TransReportModel>StatusId}" text="{TransReportModel>StatusDescription}"/>
+													<customData>
+														<core:CustomData id="_IDGenCustomData5" value="StatusId"/>
+													</customData>
+												</ComboBox>
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem id="_IDGenFilterItem6" name="startdate" label="{i18n>StrtDte}" visible="{path: 'variant>/creationdate/visible', formatter: '.Formatter.visiblity'}">
+											<fb:control>
+												<DateRangeSelection placeholder="{i18n>DelvryDtePlchldr}" id="DRS1"
+													tooltip="{parts : [ {path : 'variant>/creationdate/value1'}, {path : 'variant>/creationdate/value2'} ], formatter : '.Formatter.tooltipDateFormat' }"
+													change="handleStartDateChange" dateValue="{variant>/creationdate/value1}" secondDateValue="{variant>/creationdate/value2}">
+													<customData>
+														<core:CustomData id="_IDGenCustomData6" value="CreationDate"/>
+													</customData>
+												</DateRangeSelection>
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem id="_IDGenFilterItem7" name="enddate" label="{i18n>DelvryDte}" visible="{path: 'variant>/deliverydate/visible', formatter: '.Formatter.visiblity'}">
+											<fb:control>
+												<DateRangeSelection placeholder="{i18n>DelvryDtePlchldr}" id="DRS2"
+													tooltip="{parts : [ {path : 'variant>/deliverydate/value1'}, {path : 'variant>/deliverydate/value2'} ], formatter : '.Formatter.tooltipDateFormat' }"
+													change="handleStartDateChange" dateValue="{variant>/deliverydate/value1}" secondDateValue="{variant>/deliverydate/value2}">
+													<customData>
+														<core:CustomData id="_IDGenCustomData7" value="ReqDelDate"/>
+													</customData>
+												</DateRangeSelection>
+											</fb:control>
+										</fb:FilterItem>
+									</fb:filterItems>
+								</fb:FilterBar>
+								<layoutData>
+									<layout:GridData id="_IDGenGridData2" span="L10 M10 S12"></layout:GridData>
+								</layoutData>
+							</VBox>
+						</layout:Grid>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content class="dynamicContent">
+				<VBox id="_IDGenVBox3" alignContent="Stretch">
+					<Table id="emptyOppList" inset="true" items="" class="sapUiSizeCompact" visible="true" growing="true" growingThreshold="200"
+						updateFinished="onUpdateTableData">
+					<!-- <Table id="emptyOppList" inset="true" items="{/results}" class="sapUiSizeCompact" visible="true" growing="true" growingThreshold="200"
+						updateFinished="onUpdateTableData"> -->
+						<headerToolbar>
+							<Toolbar id="_IDGenToolbar2">
+								<content>
+									<Title text="{i18n>requestCount}" id="countIdSummry"/>
+									<!--<Title text="{i18n>appTitle}" id="countIdSummry"/>-->
+									<ToolbarSpacer id="_IDGenToolbarSpacer3"/>
+									<!--<core:Icon tooltip="{i18n>createTranslation}" src="sap-icon://create-form" press="navToCreateTranslation" color="#3A6C96"/>-->
+									<Button id="_IDGenButton1" tooltip="{i18n>createTranslation}" icon="sap-icon://create-form" press="navToCreateTranslation" type="Transparent"></Button>
+									<ToolbarSeparator id="_IDGenToolbarSeparator1"></ToolbarSeparator>
+									<!--<core:Icon tooltip="{i18n>Sorting}" src="sap-icon://drop-down-list" press="onOppSortDialog" color="#3A6C96" class="pcActivitySetTableHeader"/>-->
+									<Button id="_IDGenButton2" tooltip="{i18n>Sorting}" icon="sap-icon://drop-down-list" press="onOppSortDialog" type="Transparent"
+										class="pcActivitySetTableHeader"></Button>
+									<!--<core:Icon tooltip="{i18n>Personalization}" src="sap-icon://action-settings" press="onOppPersonalizationDialog" color="#3A6C96"
+										class="pcActivitySetTableHeader"/>-->
+									<Button id="_IDGenButton3" icon="sap-icon://action-settings" tooltip="{i18n>Personalization}" type="Transparent" press="onOppPersonalizationDialog"
+										class="pcActivitySetTableHeader"></Button>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="_IDGenColumn1" minScreenWidth="Tablet" demandPopin="true" hAlign="Left"
+								visible="{path: 'variant>/requestid/visible', formatter: '.Formatter.visiblity'}">
+								<Text id="_IDGenText1" text="{i18n>requestid}"/>
+							</Column>
+							<Column id="_IDGenColumn2" minScreenWidth="Tablet" demandPopin="true" hAlign="Left"
+								visible="{path: 'variant>/status/visible', formatter: '.Formatter.visiblity'}">
+								<Text id="_IDGenText2" text="{i18n>Status}"/>
+							</Column>
+							<Column id="_IDGenColumn3" minScreenWidth="Tablet" demandPopin="true" hAlign="Left"
+								visible="{path: 'variant>/requestor/visible', formatter: '.Formatter.visiblity'}">
+								<Text id="_IDGenText3" text="{i18n>requestor}"/>
+							</Column>
+							<Column id="_IDGenColumn4" minScreenWidth="Tablet" demandPopin="true" hAlign="Left"
+								visible="{path: 'variant>/customer/visible', formatter: '.Formatter.visiblity'}">
+								<Text id="_IDGenText4" text="{i18n>Customer}"/></Column>
+							<Column id="_IDGenColumn5" minScreenWidth="Tablet" demandPopin="true" hAlign="Center"
+								visible="{path: 'variant>/country/visible', formatter: '.Formatter.visiblity'}">
+								<Text id="_IDGenText5" text="{i18n>country}"/>
+							</Column>
+							<Column id="_IDGenColumn6" minScreenWidth="Tablet" demandPopin="true" hAlign="Center"
+								visible="{path: 'variant>/creationdate/visible', formatter: 'com.presalescentral.translationsummary.model.Formatter.visiblity'}">
+								<Text id="_IDGenText6" text="{i18n>StrtDte}"/>
+							</Column>
+							<Column id="_IDGenColumn7" minScreenWidth="Desktop" demandPopin="true" hAlign="Center"
+								visible="{path: 'variant>/deliverydate/visible', formatter: 'com.presalescentral.translationsummary.model.Formatter.visiblity'}">
+								<Text id="_IDGenText7" text="{i18n>DelvryDte}"/>
+							</Column>
+							<Column id="_IDGenColumn8" minScreenWidth="Tablet" demandPopin="true" hAlign="Left" width="6%">
+								<Text id="_IDGenText8" text="{i18n>Action}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="_IDGenColumnListItem1">
+								<Text id="_IDGenText9" text="3497"/>
+								<Text id="_IDGenText10" text="New"/>
+								<Text id="_IDGenText11" text="ABC"/>
+								<Text id="_IDGenText12" text="Test"/>
+								<Text id="_IDGenText13" text="France"/>
+								<Text id="_IDGenText14" text="Jun 10,2021,05:30 AM"/>
+								<Text id="_IDGenText15" text="Jun 12,2021,05:30 AM"/>
+								<HBox id="_IDGenHBox1" justifyContent="Start">
+									<Button id="_IDGenButton4" icon="sap-icon://edit" tooltip="{i18n>editTranslation}" type="Transparent" press="onNavToEditTranslationForm"></Button>
+								</HBox>
+							</ColumnListItem>
+							<!-- <ColumnListItem id="_IDGenColumnListItem1">
+								<Text id="_IDGenText9" text="{RequestId}"/>
+								<Text id="_IDGenText10" text="{StatusDesc}"/>
+								<Text id="_IDGenText11" text="{RequesterName}"/>
+								<Text id="_IDGenText12" text="{customer}"/>
+								<Text id="_IDGenText13" text="{CountryDesc}"/>
+								<Text id="_IDGenText14" text="{path: 'CreationDate', formatter: 'com.presalescentral.translationsummary.model.Formatter.formatDate'}"/>
+								<Text id="_IDGenText15" text="{path: 'ReqDelDate', formatter: 'com.presalescentral.translationsummary.model.Formatter.formatDate'}"/>
+								<HBox id="_IDGenHBox1" justifyContent="Start">
+									<Button id="_IDGenButton4" icon="sap-icon://edit" tooltip="{i18n>editTranslation}" type="Transparent" press="onNavToEditTranslationForm"></Button>
+								</HBox>
+							</ColumnListItem> -->
+						</items>
+					</Table>
+				</VBox>
+			</f:content>
+		</f:DynamicPage>
+        </content>
+    </Page>
+</mvc:View>
