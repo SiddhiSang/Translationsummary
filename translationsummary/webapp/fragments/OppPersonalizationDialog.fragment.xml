@@ -12,9 +12,25 @@
 			</Toolbar>
 		</subHeader>
 		<content>
-			<List id="OppPersonalizationList" items="{path : 'oppColumns>/', sorter : { path : 'name', descending : false } }" mode="MultiSelect"
+			<!-- <List id="OppPersonalizationList" items="{path : 'oppColumns>/', sorter : { path : 'name', descending : false } }" mode="MultiSelect"
+				includeItemInSelection="true" selectionChange="onOppFieldVisibility" > -->
+			<List id="OppPersonalizationList" mode="MultiSelect"
 				includeItemInSelection="true" selectionChange="onOppFieldVisibility" >
-				<StandardListItem title="{oppColumns>name}" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+				<!-- <StandardListItem title="{oppColumns>name}" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem> -->
+				<StandardListItem title="Country" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
+				<StandardListItem title="Creation Date" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
+				<StandardListItem title="Customer" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
+				<StandardListItem title="Delivery Date" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
+				<StandardListItem title="Request ID" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
+				<StandardListItem title="Requestor" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
+					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
+				<StandardListItem title="Status" tooltip="{oppColumns>name}" visible="{oppColumns>visible}"
 					selected="{path: 'oppColumns>key', formatter: 'com.presalescentral.translationsummary.model.Formatter.persoVisiblity'}"></StandardListItem>
 			</List>
 		</content>

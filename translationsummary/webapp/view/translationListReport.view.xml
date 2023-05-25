@@ -114,9 +114,15 @@
 										</fb:FilterItem>
 										<fb:FilterItem id="_IDGenFilterItem5" name="Status" label="{i18n>Status}" visible="{path: 'variant>/status/visible', formatter: '.Formatter.visiblity'}">
 											<fb:control>
-												<ComboBox id="Region" selectedKey="{variant>/status/value1}" placeholder="{i18n>Status.Placeholder}"
-													items="{TransReportModel>/Yc_Mtr_M_Status}">
-													<core:Item id="_IDGenItem5" key="{TransReportModel>StatusId}" text="{TransReportModel>StatusDescription}"/>
+												<ComboBox id="Region" selectedKey="{variant>/status/value1}" placeholder="{i18n>Status.Placeholder}">
+													<!-- items="{TransReportModel>/Yc_Mtr_M_Status}"> -->
+													<!-- <core:Item id="_IDGenItem5" key="{TransReportModel>StatusId}" text="{TransReportModel>StatusDescription}"/> -->
+													<core:Item id="_IDGenItem5" key="New" text="New"/>
+													<core:Item id="_IDGenItem51" key="In Process" text="In Process"/>
+													<core:Item id="_IDGenItem52" key="Complete" text="Complete"/>
+													<core:Item id="_IDGenItem53" key="On Hold" text="On Hold"/>
+													<core:Item id="_IDGenItem54" key="Cancelled" text="Cancelled"/>
+													<core:Item id="_IDGenItem55" key="Rejected" text="Rejected"/>
 													<customData>
 														<core:CustomData id="_IDGenCustomData5" value="StatusId"/>
 													</customData>
@@ -223,6 +229,18 @@
 								<Text id="_IDGenText15" text="Jun 12,2021,05:30 AM"/>
 								<HBox id="_IDGenHBox1" justifyContent="Start">
 									<Button id="_IDGenButton4" icon="sap-icon://edit" tooltip="{i18n>editTranslation}" type="Transparent" press="onNavToEditTranslationForm"></Button>
+								</HBox>
+							</ColumnListItem>
+							<ColumnListItem id="_IDGenColumnListItem2">
+								<Text  text="3498"/>
+								<Text  text="New"/>
+								<Text  text="XYZ"/>
+								<Text text="Test1"/>
+								<Text  text="India"/>
+								<Text  text="July 26,2022,06:30 AM"/>
+								<Text  text="July 25,2022,06:30 AM"/>
+								<HBox  justifyContent="Start">
+									<Button  icon="sap-icon://edit" tooltip="{i18n>editTranslation}" type="Transparent" press="onNavToEditTranslationForm"></Button>
 								</HBox>
 							</ColumnListItem>
 							<!-- <ColumnListItem id="_IDGenColumnListItem1">

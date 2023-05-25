@@ -228,5 +228,71 @@ sap.ui.define([
                 // });
                 
             },
+            onNavToEditTranslationForm: function (oEvent) {
+                // var oLinetem = oEvent.getSource().getParent().getParent();
+                // var oPath = oLinetem.getBindingContextPath();
+                // var RequestId = oLinetem.getParent().getModel().getProperty(oPath).RequestId;
+                // //	this.ovariantStrage.put("sessionStorageVariantModel", this.getView().getModel("variant").getData());
+                // var oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation"); // get a handle on the global XAppNav service
+                // //	sap.git.usage.Reporting.addEvent(this.getOwnerComponent(), "Edit Translation");
+                // var hash = (oCrossAppNavigator && oCrossAppNavigator.hrefForExternal({
+                //     target: {
+                //         semanticObject: "pctranslationform",
+                //         action: "app"
+                //     },
+                //     params: {
+                //         "TranslationID": RequestId
+                //     }
+                // })) || ""; // generate the Hash to display a Supplier
+                // oCrossAppNavigator.toExternal({
+                //     target: {
+                //         shellHash: hash
+                //     }
+                // });
+            },
+            onClickStandardVariant: function (oEvent) {
+                //	var that = this;
+                if (!this.onStandrdVariant) {
+                    this.onStandrdVariant = new sap.ui.xmlfragment(this.getView().getId(), "com.presalescentral.translationsummary.fragments.variant",
+                        this);
+                    this.getView().addDependent(this.onStandrdVariant);
+                }
+                var oButton = oEvent.getSource();
+                // this.byId("variantList").setSelectedKey(this.variantId);
+           
+                // if (this.variantEditFlag === "X") {
+                //     this.byId("variantSave").setEnabled(true);
+                // } else {
+                //     this.byId("variantSave").setEnabled(false);
+                // }
+            
+                // this.getOwnerComponent().getModel("busy").setProperty("/isAppBusy", false);
+                this.onStandrdVariant.openBy(oButton);
+    
+            },
+            onClearFilterDataTotal: function (oEvent) {
+                this.byId("expandendContent").setText("Not Filtered");
+                this.byId("snappedContent").setText("Not Filtered");
+                this.byId("globalSearch").setValue("");
+                this.oView.getModel("variant").setProperty("/requestid/value1", []);
+                this.oView.getModel("variant").setProperty("/requestor/value1", []);
+                this.oView.getModel("variant").setProperty("/customer/value1", []);
+                this.oView.getModel("variant").setProperty("/country/value1", []);
+                this.oView.getModel("variant").setProperty("/status/value1", []);
+                this.additionalSolMap = {};
+                this.addCountryMapData = {};
+                this.addReqIdMapData = {};
+                this.oSelectedUserData = {};
+                var selectionset = oEvent.getParameters().selectionSet;
+                $.each(selectionset, function (index, value) {
+                    if (value.getMetadata().getElementName() === "sap.m.ComboBox") {
+                        value.setSelectedKey("");
+                    } else {
+                        value.setValue("");
+                    }
+    
+                });
+                this.byId("filterbar-btnGo").firePress();
+            },
         });
     });

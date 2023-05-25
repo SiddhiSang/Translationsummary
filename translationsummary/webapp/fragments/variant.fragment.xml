@@ -1,7 +1,8 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<Popover contentHeight="250px" contentWidth="auto" showHeader="false" placement="Bottom" >
+	<Popover contentHeight="250px" contentWidth="auto" showHeader="true" placement="Bottom" title="My Translations" >
 		<content>
 		<SelectList  id="variantList" items="{TransReportModel>/YC_MTR_VARIANT}" itemPress="variantSelect">
+				<!-- <core:Item key="{TransReportModel>variantid}" text="My Translations"/> -->
 				<core:Item key="{TransReportModel>variantid}" text="{TransReportModel>variant_name}"/>
 			</SelectList>
 		</content>
