@@ -271,28 +271,28 @@ sap.ui.define([
     
             },
             onClearFilterDataTotal: function (oEvent) {
-                this.byId("expandendContent").setText("Not Filtered");
-                this.byId("snappedContent").setText("Not Filtered");
-                this.byId("globalSearch").setValue("");
-                this.oView.getModel("variant").setProperty("/requestid/value1", []);
-                this.oView.getModel("variant").setProperty("/requestor/value1", []);
-                this.oView.getModel("variant").setProperty("/customer/value1", []);
-                this.oView.getModel("variant").setProperty("/country/value1", []);
-                this.oView.getModel("variant").setProperty("/status/value1", []);
-                this.additionalSolMap = {};
-                this.addCountryMapData = {};
-                this.addReqIdMapData = {};
-                this.oSelectedUserData = {};
-                var selectionset = oEvent.getParameters().selectionSet;
-                $.each(selectionset, function (index, value) {
-                    if (value.getMetadata().getElementName() === "sap.m.ComboBox") {
-                        value.setSelectedKey("");
-                    } else {
-                        value.setValue("");
-                    }
+                // this.byId("expandendContent").setText("Not Filtered");
+                // this.byId("snappedContent").setText("Not Filtered");
+                // this.byId("globalSearch").setValue("");
+                // this.oView.getModel("variant").setProperty("/requestid/value1", []);
+                // this.oView.getModel("variant").setProperty("/requestor/value1", []);
+                // this.oView.getModel("variant").setProperty("/customer/value1", []);
+                // this.oView.getModel("variant").setProperty("/country/value1", []);
+                // this.oView.getModel("variant").setProperty("/status/value1", []);
+                // this.additionalSolMap = {};
+                // this.addCountryMapData = {};
+                // this.addReqIdMapData = {};
+                // this.oSelectedUserData = {};
+                // var selectionset = oEvent.getParameters().selectionSet;
+                // $.each(selectionset, function (index, value) {
+                //     if (value.getMetadata().getElementName() === "sap.m.ComboBox") {
+                //         value.setSelectedKey("");
+                //     } else {
+                //         value.setValue("");
+                //     }
     
-                });
-                this.byId("filterbar-btnGo").firePress();
+                // });
+                // this.byId("filterbar-btnGo").firePress();
             },
         });
     });
